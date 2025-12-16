@@ -1,4 +1,4 @@
-package com.example.SmartAgriConnect.DTO;
+package com.example.SmartAgriConnect.DTO.auth;
 import com.example.SmartAgriConnect.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;

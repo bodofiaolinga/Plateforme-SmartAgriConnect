@@ -1,4 +1,4 @@
-package com.example.SmartAgriConnect.DTO;
+package com.example.SmartAgriConnect.DTO.auth;
 
 import lombok.Data;
 

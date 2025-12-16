@@ -1,10 +1,24 @@
 package com.example.SmartAgriConnect.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.xml.crypto.Data;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "commandes")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Commande {
 
     private  String id;
@@ -15,7 +29,7 @@ public class Commande {
 
     private Integer prixTotal;
 
-    private Data dateCommande;
+    private LocalDateTime dateCommande;
 
     private String status;
     @ManyToOne

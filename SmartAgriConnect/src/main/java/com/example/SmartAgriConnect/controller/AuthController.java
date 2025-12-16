@@ -1,8 +1,8 @@
 package com.example.SmartAgriConnect.controller;
 
-import com.example.SmartAgriConnect.DTO.AuthReponse;
-import com.example.SmartAgriConnect.DTO.LoginRequest;
-import com.example.SmartAgriConnect.DTO.RegisterRequest;
+import com.example.SmartAgriConnect.DTO.auth.AuthReponse;
+import com.example.SmartAgriConnect.DTO.auth.LoginRequest;
+import com.example.SmartAgriConnect.DTO.auth.RegisterRequest;
 import com.example.SmartAgriConnect.service.AuthService;
 
 import lombok.RequiredArgsConstructor;

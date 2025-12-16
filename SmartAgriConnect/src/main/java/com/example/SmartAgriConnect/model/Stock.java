@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.xml.crypto.Data;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "stocks")
 @Getter
@@ -20,7 +22,7 @@ public class Stock {
 
     private Integer seuilCritique;
 
-    private Data derniereMiseAJour;
+    private LocalDateTime derniereMiseAJour;
     private String statut;
     @OneToOne
     @JoinColumn(name = "produit_id",
