@@ -3,14 +3,13 @@ package com.example.SmartAgriConnect.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
+
 @Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Entity
+public class User extends AbstractEntity{
 
     private String name;
 
@@ -21,7 +20,7 @@ public class User {
     private int phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Role role=Role.AGRICULTEUR;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Agriculteur agriculteur;

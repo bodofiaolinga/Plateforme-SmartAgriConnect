@@ -3,20 +3,23 @@ package com.example.SmartAgriConnect.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
+import java.util.List;
+
+
 @Table(name = "produits")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Produit {
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+@Entity
+public class Produit extends AbstractEntity{
 
     private String nom;
 
     private String description;
+
     private String categories;
+
     private String uniteMesure;
 
     private Integer prixVente;
@@ -26,5 +29,8 @@ public class Produit {
     private Agriculteur agriculteur;
 
     @OneToMany(mappedBy = "produit")
-    private Commande commande;
+    private List<Commande> commande;
+
+    @OneToOne(mappedBy = "produit")
+    private Stock stock;
 }

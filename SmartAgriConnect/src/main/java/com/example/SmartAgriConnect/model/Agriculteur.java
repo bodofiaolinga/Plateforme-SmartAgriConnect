@@ -3,15 +3,16 @@ package com.example.SmartAgriConnect.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
+import java.util.List;
+
+
 @Table(name = "agriculteurs")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Agriculteur {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+@Entity
+public class Agriculteur extends AbstractEntity {
 
     private String nom;
 
@@ -23,6 +24,9 @@ public class Agriculteur {
 
     private String localisation;
 
+    @Enumerated(EnumType.STRING)
+    private EtatCompte etatCompte;
+
     @OneToOne
     @JoinColumn(
             name = "user_id",
@@ -32,11 +36,11 @@ public class Agriculteur {
     private User user;
 
     @OneToMany(mappedBy = "agriculteur")
-    private Produit produit;
+    private List<Produit>  produit;
 
      @OneToMany(mappedBy = "agriculteur")
-    private Stock stock;
+    private List<Stock> stock;
 
     @OneToMany(mappedBy = "agriculteur")
-     private Commande commande;
+     private List <Commande> commande;
 }

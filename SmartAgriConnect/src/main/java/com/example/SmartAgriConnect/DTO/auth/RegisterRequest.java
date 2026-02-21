@@ -12,8 +12,8 @@ public class RegisterRequest {
 
     private String name;
     private String email;
+    private int phoneNumber;
     private String password;
-    private Role role;
 
 
     public User toEntity(RegisterRequest dto){
@@ -22,8 +22,8 @@ public class RegisterRequest {
         if (dto==null) return null;
         user.setName(dto.name);
         user.setEmail(dto.email);
+        user.setPhoneNumber(dto.phoneNumber);
         user.setPassword(dto.password);
-        user.setRole(dto.role);
         return user;
     }
 
@@ -34,8 +34,8 @@ public class RegisterRequest {
         RegisterRequest request=new RegisterRequest();
         request.setName(user.getName());
         request.setEmail(user.getEmail());
+        request.setPhoneNumber(user.getPhoneNumber());
         request.setPassword(user.getPassword());
-        request.setRole(user.getRole());
         return request;
     }
 

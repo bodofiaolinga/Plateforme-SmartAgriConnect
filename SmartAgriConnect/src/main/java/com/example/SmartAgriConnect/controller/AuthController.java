@@ -5,16 +5,20 @@ import com.example.SmartAgriConnect.DTO.auth.LoginRequest;
 import com.example.SmartAgriConnect.DTO.auth.RegisterRequest;
 import com.example.SmartAgriConnect.service.AuthService;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class AuthController {
-
-    public final AuthService authService;
+@Autowired
+    public  AuthService authService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthReponse> register(@RequestBody RegisterRequest request) {

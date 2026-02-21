@@ -5,25 +5,32 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Entity
+
 @Table(name = "stocks")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Stock {
-    private String id;
+@Entity
+public class Stock extends AbstractEntity{
 
     private Integer quantiteDisponible;
 
     private Integer seuilCritique;
 
-    private LocalDateTime derniereMiseAJour;
-    private String statut;
+    private String unite;
+
+
+     @Enumerated(EnumType.STRING)
+    private StatutStock statut=StatutStock.NORMAL;
+
+
     @OneToOne
     @JoinColumn(name = "produit_id",
                 unique = true,
@@ -34,6 +41,6 @@ public class Stock {
     @JoinColumn(name = "agriculteur_id")
     private Agriculteur agriculteur;
      @OneToMany(mappedBy = "stock")
-    private Commande commande;
+    private List<Commande>  commande;
 
 }

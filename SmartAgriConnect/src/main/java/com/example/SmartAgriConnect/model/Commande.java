@@ -8,30 +8,29 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Entity
+
 @Table(name = "commandes")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Commande {
+@Entity
+public class Commande extends AbstractEntity{
 
-    private  String id;
 
-    private String reference;
 
     private  Integer quantiteCommandee;
 
     private Integer prixTotal;
 
-    private LocalDateTime dateCommande;
-
     private String status;
+
+
+
     @ManyToOne
     @JoinColumn(name = "produit_id")
     private Produit produit;
